@@ -1,4 +1,5 @@
-## Compressed Communication for Large-scale Distributed Deep Learning -- A Tutorial IJCAI 2020, Yokohoma Japan
+## Compressed Communication for Large-scale Distributed Deep Learning -- A Tutorial
+## IJCAI 2020, Yokohoma Japan
 
 You can use the [editor on GitHub](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
