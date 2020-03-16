@@ -43,6 +43,5 @@ The tutorial is divided into several parts:
 
 ### What is a distributed training? 
 
-<img src="Images/centralized_decentralized_final1.pdf">
-
+<img src="Images/ieee754.png"> 
 
