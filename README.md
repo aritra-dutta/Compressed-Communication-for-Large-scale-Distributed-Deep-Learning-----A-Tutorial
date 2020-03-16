@@ -56,7 +56,9 @@ where n is the number of workers. Each worker has a local copy of the model and 
 
 This tutorial focuses on *gradient compression*. 
       
-      * Let g_k^{i,L} be the local gradient in worker $i$ at level $L$ of the DNN during training iteration $k$. Instead of transmitting $g_k^{i,L}$, the worker sends $Q(g_k^{i,L})$, where $Q$ is a compression operator (see Figure~\ref{fig:DNN}). The receiver has a decompression operator $Q^{-1}$ that reconstructs the gradient. Typically, this process is lossy; for this reason, several methods incorporate a {\em memory} (or {\em error feedback}) mechanism to compensate for errors accumulated due to the lossy compression.
+      * Let g_k^{i,L} be the local gradient in worker $i$ at level $L$ of the DNN during training iteration $k$. 
+      * Instead of transmitting $g_k^{i,L}$, the worker sends $Q(g_k^{i,L})$, where $Q$ is a compression operator. 
+      * The receiver has a decompression operator $Q^{-1}$ that reconstructs the gradient. 
 
 ### Is Layer-wise compression better than the full model compression? 
 
