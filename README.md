@@ -79,4 +79,4 @@ We argue this is better in practice in our recent [AAAI 2020 paper](https://www.
 \ENDFOR
 \RETURN {x} 
 \end{algorithmic}  
-\end{algorithm}." />
+\end{algorithm}."/>
