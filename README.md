@@ -1,7 +1,10 @@
 ## Compressed Communication for Large-scale Distributed Deep Learning -- A Tutorial
 
-## Venue 
+## Tutorial Venue 
 IJCAI 2020, Yokohoma Japan
+
+# Tutorial Dates 
+11-13th July, 2020 
 
 ## Presenters 
 El Houcine Bergou, Aritra Dutta and Panos Kalnis
