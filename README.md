@@ -7,7 +7,9 @@ IJCAI 2020, Yokohoma, Japan
 11-13th July, 2020 
 
 ## Presenters 
-El Houcine Bergou, Aritra Dutta, and Panos Kalnis
+El Houcine Bergou 
+Aritra Dutta, [Personal Website!](https://www.aritradutta.com/)
+Panos Kalnis
 
 King Abdullah University of Science and Technology (KAUST)
 
