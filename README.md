@@ -1,6 +1,11 @@
 ## Compressed Communication for Large-scale Distributed Deep Learning -- A Tutorial
 ## IJCAI 2020, Yokohoma Japan
 
+## Presenters 
+
+El Houcine Bergou, Aritra Dutta and Panos Kalnis\\
+King Abdullah University of Science and Technology (KAUST)
+
 You can use the [editor on GitHub](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
