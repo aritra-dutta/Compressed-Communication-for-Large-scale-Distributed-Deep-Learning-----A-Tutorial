@@ -57,10 +57,7 @@ We argue this is better in practice in our recent [AAAI 2020 paper](https://www.
 
 
 
-<img src="https://tex.s2cms.ru/svg/x_%7B1%2C2%7D%20%3D%20%7B-b%5Cpm%5Csqrt%7Bb%5E2%20-%204ac%7D%20%5Cover%202a%7D." alt="\begin{algorithm}
-\footnotesize
-\caption{Distributed Training Loop}\label{alg_1}
-\textbf{Input:} Number of nodes $n$, learning rate $\eta_k$, compression $Q$ and decompression $Q^{-1}$ operators, memory compensation function $\phi(\cdot)$, and memory update function $\psi(\cdot)$.\\
+<img src="https://tex.s2cms.ru/svg/x_%7B1%2C2%7D%20%3D%20%7B-b%5Cpm%5Csqrt%7Bb%5E2%20-%204ac%7D%20%5Cover%202a%7D." alt="\textbf{Input:} Number of nodes $n$, learning rate $\eta_k$, compression $Q$ and decompression $Q^{-1}$ operators, memory compensation function $\phi(\cdot)$, and memory update function $\psi(\cdot)$.\\
 \textbf{Output:} Trained model $x$.\\
 \begin{algorithmic}[1] 
 \STATE \textbf{On} each node $i$:
@@ -69,11 +66,9 @@ We argue this is better in practice in our recent [AAAI 2020 paper](https://www.
 \STATE \textbf{Calculate} stochastic gradient ${g}_{k}^i$
 \STATE $\tilde{{g}}_{k}^i=Q(\phi(m_k^i,g_{k}^i))$
 \STATE ${m_{k+1}^i}=\psi(m_k^i,{g}_{k}^i,\tilde{{g}}_{k}^i)$
-
 \IF{compressor uses {\tt Allreduce}}
 \STATE $\tilde{g}_{k}= {\tt Allreduce}(\tilde{g}_{k}^{i})$
 \STATE ${g}_{k} = Q^{-1}(\tilde{g}_{k})\;/\;n$
-
 \ELSIF{compressor uses {\tt Broadcast|Allgather}}
 \STATE $[\tilde{g}_{k}^{1},\tilde{g}_{k}^{2},\cdots,\tilde{g}_{k}^{n}]={\tt Broadcast}(\tilde{g}_{k}^{i})\;{\tt |}\;{\tt Allgather}(\tilde{g}_{k}^{i})$
 \STATE $[{g}_{k}^{1},{g}_{k}^{2},\cdots,{g}_{k}^{n}]=Q^{-1}([\tilde{g}_{k}^{1},\tilde{g}_{k}^{2},\cdots,\tilde{g}_{k}^{n}])$
@@ -83,4 +78,4 @@ We argue this is better in practice in our recent [AAAI 2020 paper](https://www.
 \ENDFOR
 \RETURN ${x}$ \COMMENT{each node has the same view of the model}
 \end{algorithmic}  
-\end{algorithm}"/>
+\end{algorithm}" />
