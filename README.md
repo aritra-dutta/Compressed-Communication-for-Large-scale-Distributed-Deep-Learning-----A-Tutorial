@@ -41,9 +41,12 @@ The tutorial is divided into several parts:
 
 ### What is distributed training? 
 
-<img src="Images/DNN.png"> 
+<img src="Images/Distributed.png"> 
 
 ### How distributed training is performed? 
+
+<img src="Images/DNN.png"> 
+
 
 <img src="Images/Layerwise.png"> 
 
