@@ -36,7 +36,9 @@ The tutorial is divided into several parts:
     
  * Part-4 [5min]. Interactive session with the audience. 
 
+What is a distributed training:
 
+![Distributed](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/centralized_decentralized_final1.pdf)
 
 You can use the [editor on GitHub](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
