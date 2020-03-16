@@ -2,9 +2,13 @@
 ## IJCAI 2020, Yokohoma Japan
 
 ## Presenters 
-
-El Houcine Bergou, Aritra Dutta and Panos Kalnis\\
+El Houcine Bergou, Aritra Dutta and Panos Kalnis
 King Abdullah University of Science and Technology (KAUST)
+
+
+## Description
+We survey compressed communication methods for distributed deep learning and discuss the theoretical background, as well as practical deployment on TF and PT. We also present quantitative comparison of the training speed and model accuracy of compressed communication methods on popular deep neural network models and datasets.
+
 
 You can use the [editor on GitHub](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
