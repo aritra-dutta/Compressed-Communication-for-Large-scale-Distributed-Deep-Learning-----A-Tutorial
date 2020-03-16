@@ -55,31 +55,4 @@ We argue this is better in practice in our recent [AAAI 2020 paper](https://www.
 <img src="https://tex.s2cms.ru/svg/x_%7B1%2C2%7D%20%3D%20%7B-b%5Cpm%5Csqrt%7Bb%5E2%20-%204ac%7D%20%5Cover%202a%7D." alt="x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}." />
 
 
-
-
-<img src="
-\begin{algorithm}
-\footnotesize
-\caption{Distributed Training Loop}
-\textbf{Input:} Number of nodes n, learning rate \eta_k, compression Q and decompression Q^{-1} operators, memory compensation function $\phi(\cdot), and memory update function \psi(\cdot).\\
-\textbf{Output:} Trained model x.\\
-\begin{algorithmic}[1] 
-\STATE \textbf{On} each node i:
-\STATE \textbf{Initialize:} m_0^i=\mathbf{0} \COMMENT{vector of zeros}
-\FOR{k = 0, 1,\ldots,}
-\STATE \textbf{Calculate} stochastic gradient {g}_{k}^i
-\STATE \tilde{{g}}_{k}^i=Q(\phi(m_k^i,g_{k}^i))
-\STATE {m_{k+1}^i}=\psi(m_k^i,{g}_{k}^i,\tilde{{g}}_{k}^i)
-\IF{compressor uses {\tt Allreduce}}
-\STATE \tilde{g}_{k}= {\tt Allreduce}(\tilde{g}_{k}^{i})
-\STATE {g}_{k} = Q^{-1}(\tilde{g}_{k})\;/\;n
-\ELSIF{compressor uses {\tt Broadcast|Allgather}}
-\STATE [\tilde{g}_{k}^{1},\tilde{g}_{k}^{2},\cdots,\tilde{g}_{k}^{n}]={\tt Broadcast}(\tilde{g}_{k}^{i})\;{\tt |}\;{\tt Allgather}(\tilde{g}_{k}^{i})
-\STATE [{g}_{k}^{1},{g}_{k}^{2},\cdots,{g}_{k}^{n}]=Q^{-1}([\tilde{g}_{k}^{1},\tilde{g}_{k}^{2},\cdots,\tilde{g}_{k}^{n}])
-\STATE {g}_{k} = Agg([{g}_{k}^{1},{g}_{k}^{2},\cdots,{g}_{k}^{n}])
-\ENDIF
-\STATE x_{k+1}^{i}=x_{k}^{i}-\eta_{k}{g}_{k}
-\ENDFOR
-\RETURN {x} 
-\end{algorithmic}  
-\end{algorithm}" />
+//i.upmath.me/svg/%5Cbegin%7Balgorithm%7D%0A%5Cfootnotesize%0A%5Ccaption%7BDistributed%20Training%20Loop%7D%5Clabel%7Balg_1%7D%0A%5Ctextbf%7BInput%3A%7D%20Number%20of%20nodes%20%24n%24%2C%20learning%20rate%20%24%5Ceta_k%24%2C%20compression%20%24Q%24%20and%20decompression%20%24Q%5E%7B-1%7D%24%20operators%2C%20memory%20compensation%20function%20%24%5Cphi(%5Ccdot)%24%2C%20and%20memory%20update%20function%20%24%5Cpsi(%5Ccdot)%24.%5C%5C%0A%5Ctextbf%7BOutput%3A%7D%20Trained%20model%20%24x%24.%5C%5C%0A%5Cbegin%7Balgorithmic%7D%5B1%5D%20%0A%5CSTATE%20%5Ctextbf%7BOn%7D%20each%20node%20%24i%24%3A%0A%5CSTATE%20%5Ctextbf%7BInitialize%3A%7D%20%24m_0%5Ei%3D%5Cmathbf%7B0%7D%24%20%5CCOMMENT%7Bvector%20of%20zeros%7D%0A%5CFOR%7B%24k%20%3D%200%2C%201%2C%5Cldots%2C%24%7D%0A%5CSTATE%20%5Ctextbf%7BCalculate%7D%20stochastic%20gradient%20%24%7Bg%7D_%7Bk%7D%5Ei%24%0A%5CSTATE%20%24%5Ctilde%7B%7Bg%7D%7D_%7Bk%7D%5Ei%3DQ(%5Cphi(m_k%5Ei%2Cg_%7Bk%7D%5Ei))%24%0A%5CSTATE%20%24%7Bm_%7Bk%2B1%7D%5Ei%7D%3D%5Cpsi(m_k%5Ei%2C%7Bg%7D_%7Bk%7D%5Ei%2C%5Ctilde%7B%7Bg%7D%7D_%7Bk%7D%5Ei)%24%0A%0A%5CIF%7Bcompressor%20uses%20%7B%5Ctt%20Allreduce%7D%7D%0A%5CSTATE%20%24%5Ctilde%7Bg%7D_%7Bk%7D%3D%20%7B%5Ctt%20Allreduce%7D(%5Ctilde%7Bg%7D_%7Bk%7D%5E%7Bi%7D)%24%0A%5CSTATE%20%24%7Bg%7D_%7Bk%7D%20%3D%20Q%5E%7B-1%7D(%5Ctilde%7Bg%7D_%7Bk%7D)%5C%3B%2F%5C%3Bn%24%0A%0A%5CELSIF%7Bcompressor%20uses%20%7B%5Ctt%20Broadcast%7CAllgather%7D%7D%0A%5CSTATE%20%24%5B%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%5Ccdots%2C%5Ctilde%7Bg%7D_%7Bk%7D%5E%7Bn%7D%5D%3D%7B%5Ctt%20Broadcast%7D(%5Ctilde%7Bg%7D_%7Bk%7D%5E%7Bi%7D)%5C%3B%7B%5Ctt%20%7C%7D%5C%3B%7B%5Ctt%20Allgather%7D(%5Ctilde%7Bg%7D_%7Bk%7D%5E%7Bi%7D)%24%0A%5CSTATE%20%24%5B%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%5Ccdots%2C%7Bg%7D_%7Bk%7D%5E%7Bn%7D%5D%3DQ%5E%7B-1%7D(%5B%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%5Ccdots%2C%5Ctilde%7Bg%7D_%7Bk%7D%5E%7Bn%7D%5D)%24%0A%5CSTATE%20%24%7Bg%7D_%7Bk%7D%20%3D%20Agg(%5B%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%5Ccdots%2C%7Bg%7D_%7Bk%7D%5E%7Bn%7D%5D)%24%0A%0A%25%20%5CELSIF%7Bcommunication%20is%20%7B%5Ctt%20Push%5C%26Pull%7D%7D%0A%25%20%5CSTATE%20%5Chspace%7B5mm%7D%5Ctextbf%7BOn%7D%20each%20node%20%24i%24%3A%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%7B%5Ctt%20Push%7D(%5Ctilde%7Bg%7D_%7Bk%7D%5E%7Bi%7D)%24%0A%0A%25%20%5CSTATE%20%5Chspace%7B5mm%7D%5Ctextbf%7BOn%7D%20Master%3A%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%5B%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%7Bg%7D_%7Bk%7D%5E%7B3%7D%2C%5Ccdots%5D%3DQ_%7BW%7D%5E%7B-1%7D(%5B%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%5Ctilde%7Bg%7D_%7Bk%7D%5E%7B3%7D%2C%5Ccdots%5D)%24%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%7Bg%7D_%7Bk%7D%20%3D%20%7B%5Ctt%20Allgather%7D(%5B%7Bg%7D_%7Bk%7D%5E%7B1%7D%2C%7Bg%7D_%7Bk%7D%5E%7B2%7D%2C%7Bg%7D_%7Bk%7D%5E%7B3%7D%2C%5Ccdots%5D)%24%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%7B%5Ctilde%7Bg%7D_%7Bk%7D%3DQ_%7BM%7D%5Cleft(%5Cphi_%7BM%7D%5Cleft(m_%7Bk%7D%2C%20g_%7Bk%7D%5Cright)%5Cright)%7D%24%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%7Bm_%7Bk%2B1%7D%3D%5Cpsi_%7BM%7D%5Cleft(m_%7Bk%7D%2C%20g_%7Bk%7D%2C%20%5Ctilde%7Bg%7D_%7Bk%7D%5Cright)%7D%24%0A%0A%25%20%5CSTATE%20%5Chspace%7B5mm%7D%5Ctextbf%7BOn%7D%20each%20node%20%24i%24%3A%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%5Ctilde%7Bg%7D_%7Bk%7D%3D%20%7B%5Ctt%20Pull%7D(%5Ctilde%7Bg%7D_%7Bk%7D)%24%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24%7Bg%7D_%7Bk%7D%20%3D%20Q_%7BM%7D%5E%7B-1%7D(%5Ctilde%7Bg%7D_%7Bk%7D)%24%0A%25%20%5CSTATE%20%5Chspace%7B10mm%7D%24x_%7Bk%2B1%7D%5E%7Bi%7D%3Dx_%7Bk%7D%5E%7Bi%7D-%5Ceta_%7Bk%7D%7Bg%7D_%7Bk%7D%24%0A%5CENDIF%0A%5CSTATE%20%24x_%7Bk%2B1%7D%5E%7Bi%7D%3Dx_%7Bk%7D%5E%7Bi%7D-%5Ceta_%7Bk%7D%7Bg%7D_%7Bk%7D%24%0A%5CENDFOR%0A%5CRETURN%20%24%7Bx%7D%24%20%5CCOMMENT%7Beach%20node%20has%20the%20same%20view%20of%20the%20model%7D%0A%5Cend%7Balgorithmic%7D%20%20%0A%5Cend%7Balgorithm%7D
