@@ -57,7 +57,7 @@ We argue this is better in practice in our recent [AAAI 2020 paper](https://www.
 
 
 
-<img src="https://tex.s2cms.ru/svg/x_%7B1%2C2%7D%20%3D%20%7B-b%5Cpm%5Csqrt%7Bb%5E2%20-%204ac%7D%20%5Cover%202a%7D." alt="
+<img src="
 \begin{algorithm}
 \footnotesize
 \caption{Distributed Training Loop}
