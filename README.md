@@ -39,7 +39,7 @@ The tutorial is divided into several parts:
 
 What is a distributed training:
 
-![Distributed Training](centralized_decentralized_final1.pdf)
+![Distributed Training](centralized_decentralized_final1)
 
 
 
