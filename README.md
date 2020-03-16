@@ -41,7 +41,7 @@ The tutorial is divided into several parts:
     
  * **Part-4** [5min]. Interactive session with the audience. 
 
-### What is a distributed training? 
+### What is distributed training? 
 
 <img src="Images/DNN.png"> 
 
@@ -49,4 +49,4 @@ The tutorial is divided into several parts:
 
 <img src="Images/Layerwise.png"> 
 
-
+We argue this is better in practice in our recent AAAI 2020 [paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). 
