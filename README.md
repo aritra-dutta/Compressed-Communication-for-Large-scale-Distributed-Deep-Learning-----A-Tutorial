@@ -1,9 +1,9 @@
-## Compressed Communication for Large-scale Distributed Deep Learning -- A Tutorial
+# Compressed Communication for Large-scale Distributed Deep Learning -- A Tutorial
 
 ## Tutorial Venue 
 IJCAI 2020, Yokohoma Japan
 
-# Tutorial Dates 
+## Tutorial Dates 
 11-13th July, 2020 
 
 ## Presenters 
