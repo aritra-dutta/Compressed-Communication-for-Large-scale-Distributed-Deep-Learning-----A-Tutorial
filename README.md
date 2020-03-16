@@ -43,6 +43,6 @@ The tutorial is divided into several parts:
 
 ### What is a distributed training? 
 
-![Distributed Training](Images/centralized_decentralized_final1.pdf)
+![Distributed Training](https://github.com/aritra-dutta/IJCAI-2020/blob/master/Images/centralized_decentralized_final1.pdf)
 
 
