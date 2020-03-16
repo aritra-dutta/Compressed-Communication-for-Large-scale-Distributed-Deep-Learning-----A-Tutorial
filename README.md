@@ -40,7 +40,7 @@ The tutorial is divided into several parts:
 What is a distributed training:
 
 ![Distributed Training](centralized_decentralized_final1.pdf)
-Format: ![Alt Text](url)
+
 
 
 You can use the [editor on GitHub](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
