@@ -60,7 +60,7 @@ This tutorial focuses on *gradient compression*.
       * Instead of transmitting $g_k^{i,L}$, the worker sends $Q(g_k^{i,L})$, where $Q$ is a compression operator. 
       * The receiver has a decompression operator $Q^{-1}$ that reconstructs the gradient. 
 
-### What is *Compression*?
+### What is ***Compression***?
 
 We identify four main classes of compressors in the literature: 
 * **Quantization**---which reduces the number of bits of each element in the gradient tensor 
