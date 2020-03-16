@@ -41,11 +41,16 @@ The tutorial is divided into several parts:
 
 ### What is distributed training? 
 
-<img src="Images/Distributed.png"> 
+A distributed optimization problem minimizes a function 
+<img  src ="http://tex.s2cms.ru/svg/%24%24%5Cmin_%7Bx%5Cin%20%5CR%5Ed%7D%20f(x)%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5En%20f_i(x)%24%24," alt= "\min_{x\in \R^d} f(x)= \frac{1}{n}\sum_{i=1}^n f_i(x)," />
+where n is the number of workers. Each worker has a local copy of the model and has access to a partition of the training data. The workers jointly update the model parameters <img src="http://tex.s2cms.ru/svg/x%5Cin%5Cmathbb%7BR%7D%5Ed" alt = "x\in\mathbb{R}^d"/>, where d corresponds to the number of parameters. Typically, <img src="http://tex.s2cms.ru/svg/f_i" alt = "f_i"/> is an expectation function defined on a random variable that samples the data.
+
+
+[(a) Centralized distributed SGD setup by using n *workers * and unique * master/parameter * server. (b) An example of decentralized distributed SGD by using n machines forming a ring topology.]<img src="Images/Distributed.png"> 
 
 ### How distributed training is performed? 
 
-<img src="Images/DNN.png"> 
+[(a) DNN architecture at node i. (b) Gradient compression mechanism for one of the layer of a DNN.]<img src="Images/DNN.png"> 
 
 
 <img src="Images/Layerwise.png"> 
