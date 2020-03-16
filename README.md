@@ -7,11 +7,11 @@ IJCAI 2020, Yokohoma, Japan
 11-13th July, 2020 
 
 ## Presenters 
-El Houcine Bergou 
+El Houcine Bergou, <houcine.bergou@kaust.edu.sa>
 
-Aritra Dutta,<aritra.dutta@kaust.edu.sa>, [Personal Website](https://www.aritradutta.com/)
+Aritra Dutta, <aritra.dutta@kaust.edu.sa>, [Personal Website](https://www.aritradutta.com/)
 
-Panos Kalnis
+Panos Kalnis, <panos.kalnis@kaust.edu.sa>
 
 King Abdullah University of Science and Technology (KAUST)
 
