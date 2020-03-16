@@ -1,7 +1,7 @@
 # Compressed Communication for Large-scale Distributed Deep Learning --- A Tutorial
 
 ## Tutorial Venue 
-IJCAI 2020, Yokohoma, Japan
+[IJCAI 2020](https://ijcai20.org/), Yokohoma, Japan
 
 ## Tutorial Dates 
 11-13th July, 2020 
@@ -11,7 +11,7 @@ El Houcine Bergou, <houcine.bergou@kaust.edu.sa>
 
 Aritra Dutta, <aritra.dutta@kaust.edu.sa>, [Personal Website](https://www.aritradutta.com/)
 
-Panos Kalnis, <panos.kalnis@kaust.edu.sa>
+Panos Kalnis, <panos.kalnis@kaust.edu.sa>, [Personal Website](https://cloud.kaust.edu.sa/Pages/Kalnis.aspx)
 
 [King Abdullah University of Science and Technology (KAUST)](https://www.kaust.edu.sa/en)
 
@@ -25,7 +25,7 @@ Recent advances in machine learning and availability of huge corpus of digital d
 In this tutorial, we will provide an overview of the state-of-the-art gradient compression methods for distributed deep learning. We will present the theoretical background and convergence guaranties of the most representative sparcification, quantization and low-rank compression methods. We will also discuss their practical implementation on {\TF} and {\PT} with different communication libraries, such as Horovod, OpenMPI and NCCL. Additionally, we will present a quantitative comparison of the most popular gradient compression techniques in terms of training speed and model accuracy, for a variety of deep neural network models and datasets. We aim to provide a comprehensive theoretical and practical background that will allow researchers and practitioners to utilize the appropriate compression methods in their projects. 
 
 
-### Outline of the tutorial
+## Outline of the tutorial
 
 The tutorial is divided into several parts:
 
@@ -43,7 +43,7 @@ The tutorial is divided into several parts:
 
 A distributed optimization problem minimizes a function 
 <img  src ="http://tex.s2cms.ru/svg/%24%24%5Cmin_%7Bx%5Cin%20%5CR%5Ed%7D%20f(x)%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5En%20f_i(x)%24%24," alt= "\min_{x\in \R^d} f(x)= \frac{1}{n}\sum_{i=1}^n f_i(x)," />
-where n is the number of workers. Each worker has a local copy of the model and has access to a partition of the training data. The workers jointly update the model parameters <img src="http://tex.s2cms.ru/svg/x%5Cin%5Cmathbb%7BR%7D%5Ed" alt = "x\in\mathbb{R}^d"/>, where d corresponds to the number of parameters. Typically, <img src="http://tex.s2cms.ru/svg/f_i" alt = "f_i"/> is an expectation function defined on a random variable that samples the data.
+where n is the number of workers. Each worker has a local copy of the model and has access to a partition of the training data. The workers jointly update the model parameters <img src="http://tex.s2cms.ru/svg/x%5Cin%5Cmathbb%7BR%7D%5Ed" alt = "x\in\mathbb{R}^d"/>, where d corresponds to the number of parameters. Typically, <img src="http://tex.s2cms.ru/svg/f_i" alt = "f_i"/> is an expectation function defined on a random variable that samples the data. This is also known as *distributed data-parallel training* as well. The following figure shows two instances of distributed training. 
 
 
 [(a) Centralized distributed SGD setup by using n *workers * and unique * master/parameter * server. (b) An example of decentralized distributed SGD by using n machines forming a ring topology.]<img src="Images/Distributed.png"> 
@@ -52,7 +52,13 @@ where n is the number of workers. Each worker has a local copy of the model and 
 
 [(a) DNN architecture at node i. (b) Gradient compression mechanism for one of the layer of a DNN.]<img src="Images/DNN.png"> 
 
-### Is Layer-wise compression better than the full model? 
+### What is the bottleneck? What is the remedy? 
+
+This tutorial focuses on *gradient compression*. 
+      
+      * Let g_k^{i,L} be the local gradient in worker $i$ at level $L$ of the DNN during training iteration $k$. Instead of transmitting $g_k^{i,L}$, the worker sends $Q(g_k^{i,L})$, where $Q$ is a compression operator (see Figure~\ref{fig:DNN}). The receiver has a decompression operator $Q^{-1}$ that reconstructs the gradient. Typically, this process is lossy; for this reason, several methods incorporate a {\em memory} (or {\em error feedback}) mechanism to compensate for errors accumulated due to the lossy compression.
+
+### Is Layer-wise compression better than the full model compression? 
 
 [(a) Layer-wise training and (b) entire model training]
 <img src="Images/Layerwise.png"> 
