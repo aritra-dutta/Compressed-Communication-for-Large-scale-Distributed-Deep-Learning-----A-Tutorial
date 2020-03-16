@@ -60,6 +60,17 @@ This tutorial focuses on *gradient compression*.
       * Instead of transmitting $g_k^{i,L}$, the worker sends $Q(g_k^{i,L})$, where $Q$ is a compression operator. 
       * The receiver has a decompression operator $Q^{-1}$ that reconstructs the gradient. 
 
+### What is *Compression*?
+
+We identify four main classes of compressors in the literature: 
+* **Quantization**---which reduces the number of bits of each element in the gradient tensor 
+* **Sparsification**---which transmits only a few elements per tensor (e.g., only the top-$k$ largest elements);
+* **Hybrid methods**---which combine quantization with sparsification;
+* **Low-rank methods**---which decompose the gradient into low-rank matrices.
+
+<img src="Images/ieee.png"> <img src="Images/topk.png"> 
+      
+
 ### Is Layer-wise compression better than the full model compression? 
 
 [(a) Layer-wise training and (b) entire model training]
