@@ -52,6 +52,5 @@ The tutorial is divided into several parts:
 We argue this is better in practice in our recent [AAAI 2020 paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both [layerwise and full-model implementation](https://github.com/sands-lab/layer-wise-aaai20). 
 
 
-\\( a^2 = b^2 \\)
-
+$$x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}.$$
 
