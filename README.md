@@ -41,8 +41,8 @@ The tutorial is divided into several parts:
     
  * Part-4 [5min]. Interactive session with the audience. 
 
-What is a distributed training:
+### What is a distributed training? 
 
-![Distributed Training](https://github.com/aritra-dutta/Compressed-Communication-for-Large-scale-Distributed-Deep-Learning-----A-Tutorial/centralized_decentralized_final1.pdf)
+![Distributed Training](https://github.com/aritra-dutta/IJCAI-2020/centralized_decentralized_final1.pdf)
 
 
