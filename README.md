@@ -8,7 +8,9 @@ IJCAI 2020, Yokohoma, Japan
 
 ## Presenters 
 El Houcine Bergou 
-Aritra Dutta, [Personal Website!](https://www.aritradutta.com/)
+
+Aritra Dutta,[mailto](mailto:aritra.dutta@kaust.edu.sa), [Personal Website](https://www.aritradutta.com/)
+
 Panos Kalnis
 
 King Abdullah University of Science and Technology (KAUST)
