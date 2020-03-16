@@ -13,7 +13,7 @@ Aritra Dutta, <aritra.dutta@kaust.edu.sa>, [Personal Website](https://www.aritra
 
 Panos Kalnis, <panos.kalnis@kaust.edu.sa>
 
-King Abdullah University of Science and Technology (KAUST)
+[King Abdullah University of Science and Technology (KAUST)](https://www.kaust.edu.sa/en)
 
 
 ## Description
@@ -52,7 +52,9 @@ where n is the number of workers. Each worker has a local copy of the model and 
 
 [(a) DNN architecture at node i. (b) Gradient compression mechanism for one of the layer of a DNN.]<img src="Images/DNN.png"> 
 
+### Is Layer-wise compression better than the full model? 
 
+[(a) Layer-wise training and (b) entire model training]
 <img src="Images/Layerwise.png"> 
 
 We argue this is better in practice in our recent [AAAI 2020 paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both [layerwise and full-model implementation](https://github.com/sands-lab/layer-wise-aaai20). 
