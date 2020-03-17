@@ -62,15 +62,16 @@ This tutorial focuses on *gradient compression*.
 
 ### What is ***Compression***?
 
-We identify four main classes of compressors in the literature: 
-* **Quantization**---which reduces the number of bits of each element in the gradient tensor 
-* **Sparsification**---which transmits only a few elements per tensor (e.g., only the top-$k$ largest elements);
-* **Hybrid methods**---which combine quantization with sparsification;
+We identify four main classes of compressors in the literature---
+* **Quantization**---which reduces the number of bits of each element in the gradient tensor,
+[**IEEE 754** datastructures: 32 bits, 16bits, and 8 bits flexpoint] <img src="Images/ieee.png">  
+* **Sparsification**---which transmits only a few elements per tensor,
+[An example of Top-k sparsification]<img src="Images/topk.png">
+* **Hybrid methods**---which combine quantization with sparsification, and 
 * **Low-rank methods**---which decompose the gradient into low-rank matrices.
 
-<img src="Images/ieee.png"> <img src="Images/topk.png"> 
-
 <img src="Images/Table.png">
+
 
 
 ### Is Layer-wise compression better than the full model compression? 
