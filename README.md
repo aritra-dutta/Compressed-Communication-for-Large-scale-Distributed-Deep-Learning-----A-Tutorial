@@ -1,7 +1,7 @@
 # Compressed Communication for Large-scale Distributed Deep Learning --- A Tutorial
 
 ## Tutorial Venue 
-[IJCAI 2020](https://ijcai20.org/), Yokohoma, Japan
+[**International Joint Conference on Artificial Intelliugence (IJCAI 2020)**](https://ijcai20.org/), Yokohoma, Japan
 
 ## Tutorial Dates 
 11-13th July, 2020 
@@ -39,7 +39,7 @@ The tutorial is divided into several parts:
 
     * We explain their theoretical guaranties in terms of complexity (i.e., convergence speed) and expected error. 
   
-* **Part-2** [35min]. Practical implementation: We will discuss the implementation of these techniques and the challenges one can expect therein. We will  present programming APIs on {\TF} and {\PT} that expose the necessary functions for implementing a wide variety of compressed communication methods. We will explain the various bottlenecks of practical implementations, such as the overheads of the compression/decompression algorithms and the effect of the underlying communication libraries such as Horovod, OpenMPI and NCCL. 
+* **Part-2** [35min]. Practical implementation: We will discuss the implementation of these techniques and the challenges one can expect therein. We will  present programming APIs on TensorFlow and PyTorch that expose the necessary functions for implementing a wide variety of compressed communication methods. We will explain the various bottlenecks of practical implementations, such as the overheads of the compression/decompression algorithms and the effect of the underlying communication libraries such as Horovod, OpenMPI and NCCL. 
 
 * **Part-3** [20min]. We will present a quantitative comparison of different methods on a variety of deep neural network models and across different datasets. We will demonstrate how parameters such as the number of compute nodes, network bandwidth, size and type of the model affect the training speed (in terms of throughput and actual wall-time) and training accuracy. We will also discuss the effect of acceleration techniques (e.g., momentum) and error correction methods (e.g., memory). 
     
@@ -68,11 +68,11 @@ To alleviate this problem, many recent work propose a *lossy compression* during
       
   * Let <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D" alt = "g_k^{i,L}" /> be the local gradient in worker <img  src ="http://tex.s2cms.ru/svg/i" alt = "i" /> at level <img  src ="http://tex.s2cms.ru/svg/L" alt = "L" /> of the DNN during training iteration <img  src ="http://tex.s2cms.ru/svg/k" alt = "k" />. 
   
-  * Instead of transmitting <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" />, the worker sends <img  src ="http://tex.s2cms.ru/svg/Q(g_k%5E%7Bi%2CL%7D)," alt = "Q(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" /> is a compression operator. 
+  * Instead of transmitting <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" /> the worker sends <img  src ="http://tex.s2cms.ru/svg/Q(g_k%5E%7Bi%2CL%7D)," alt = "Q(g_k^{i,L})" /> where <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" /> is a compression operator. 
   
-  * The receiver decompresses the compressed gradient <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D(g_k%5E%7Bi%2CL%7D)," alt = "Q^{-1}(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D" alt = "Q^{-1}" /> is a decompression operator. 
+  * The receiver decompresses the compressed gradient <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D(g_k%5E%7Bi%2CL%7D)," alt = "Q^{-1}(g_k^{i,L})" /> where <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D" alt = "Q^{-1}" /> is a decompression operator. 
   
-For a formal definition of the gradient compression, we refer the readers to [this paper.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
+For a formal definition of the gradient compression, we refer the readers to [**this paper**.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
 
 ### Classification of ***Compression*** 
 
@@ -84,7 +84,7 @@ We identify four main classes of compressors in the literature---
 * **Hybrid methods**---which combine quantization with sparsification, and 
 * **Low-rank methods**---which decompose the gradient into low-rank matrices.
 
-We refer the following table for an comprehensive overview. Although we do not claim it is exhaustive. 
+We refer the following table for an comprehensive overview of the gradient compression techniques. Although we do not claim it is exhaustive. 
 
 <img src="Images/Table.png">
 
@@ -100,7 +100,7 @@ We argue this is better in practice in our recent [**AAAI 2020 paper**](https://
 
 ## A Unified Framework
 
-Now we propose a unified,general, compressed communication framework. 
+Now we propose a unified, general, compressed, communication-efficient SGD framework. 
 
 <img src="Images/Framework.png">
 
