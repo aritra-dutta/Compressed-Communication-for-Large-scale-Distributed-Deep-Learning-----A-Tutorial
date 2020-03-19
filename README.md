@@ -4,7 +4,7 @@
 [**International Joint Conference on Artificial Intelliugence (IJCAI 2020)**](https://ijcai20.org/), Yokohoma, Japan
 
 ## Tutorial Dates 
-11-13th July, 2020 
+11-13th July, 2020
 
 ## Presenters 
 El Houcine Bergou, <houcine.bergou@kaust.edu.sa>
