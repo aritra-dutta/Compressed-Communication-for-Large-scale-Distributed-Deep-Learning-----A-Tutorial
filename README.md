@@ -15,14 +15,20 @@ Panos Kalnis, <panos.kalnis@kaust.edu.sa>, [Personal Website](https://cloud.kaus
 
 [King Abdullah University of Science and Technology (KAUST)](https://www.kaust.edu.sa/en)
 
+## Related Papers 
+
+* **[On the Discrepancy between the Theoretical Analysis and Practical Implementations of Compressed Communication for Distributed Deep Learning**, Aritra Dutta, El Houcine Bergou, Ahmed M. Abdelmoniem, Chen-Yu Ho, Atal Narayan Sahu, Marco Canini, and Panos Kalnis, In the proceedings of Thirty-Fourth AAAI Conference on Artificial Intelligence (AAAI-20)].(https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf) 
+
+* **Compressed Communication for Distributed Deep Learning: Survey and Quantitative Evaluation**, Hang Xu, Chen-Yu Ho, Ahmed M. Abdelmoniem, Aritra Dutta, El Houcine Bergou, Konstantinos Karatsenidis, Marco Canini, and Panos Kalni, March 2020. 
+
 
 ## Description
-We survey compressed communication methods for distributed deep learning and discuss the theoretical background, as well as practical deployment on TF and PT. We also present quantitative comparison of the training speed and model accuracy of compressed communication methods on popular deep neural network models and datasets.
+We survey compressed communication methods for distributed deep learning and discuss the theoretical background, as well as practical deployment on TensorFlow and PyTorch. We also present quantitative comparison of the training speed and model accuracy of compressed communication methods on popular deep neural network models and datasets.
 
 ## Abstract 
 Recent advances in machine learning and availability of huge corpus of digital data resulted in an explosive growth of DNN model sizes; consequently, the required computational resources have dramatically increased. As a result, distributed learning is becoming the de-facto norm. However, scaling various systems to support fast DNN training on large clusters of compute nodes, is  challenging. Recent works have identified that most distributed training workloads are *communication-bound*. To remedy the network bottleneck, various compression techniques emerged, including sparsification and quantization of the communicated gradients, as well as low-rank methods. Despite the potential gains, researchers and practitioners face a daunting task when choosing an appropriate compression technique. The reason is that training speed and model accuracy depend on multiple factors such as the actual framework used for the implementation, the communication library, the network bandwidth and the characteristics of the model, to name a few. 
 
-In this tutorial, we will provide an overview of the state-of-the-art gradient compression methods for distributed deep learning. We will present the theoretical background and convergence guaranties of the most representative sparcification, quantization and low-rank compression methods. We will also discuss their practical implementation on {\TF} and {\PT} with different communication libraries, such as Horovod, OpenMPI and NCCL. Additionally, we will present a quantitative comparison of the most popular gradient compression techniques in terms of training speed and model accuracy, for a variety of deep neural network models and datasets. We aim to provide a comprehensive theoretical and practical background that will allow researchers and practitioners to utilize the appropriate compression methods in their projects. 
+In this tutorial, we will provide an overview of the state-of-the-art gradient compression methods for distributed deep learning. We will present the theoretical background and convergence guaranties of the most representative sparcification, quantization and low-rank compression methods. We will also discuss their practical implementation on TensorFlow and PyTorch with different communication libraries, such as Horovod, OpenMPI and NCCL. Additionally, we will present a quantitative comparison of the most popular gradient compression techniques in terms of training speed and model accuracy, for a variety of deep neural network models and datasets. We aim to provide a comprehensive theoretical and practical background that will allow researchers and practitioners to utilize the appropriate compression methods in their projects. 
 
 
 ## Outline of the tutorial
@@ -64,7 +70,7 @@ To alleviate this problem, many recent work propose a *lossy compression* during
   * Instead of transmitting <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" />, the worker sends <img  src ="http://tex.s2cms.ru/svg/Q(g_k%5E%7Bi%2CL%7D)," alt = "Q(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" /> is a compression operator. 
   * The receiver decompresses the compressed gradient <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D(g_k%5E%7Bi%2CL%7D)," alt = "Q^{-1}(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D" alt = "Q^{-1}" /> is a decompression operator. 
   
-For a formal definition, we refer the reader to [this paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
+For a formal definition, we refer the readers to [this paper.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
 
 ### Classification of ***Compression*** 
 
@@ -88,10 +94,14 @@ enforce *wait-free backpropagation* where the gradients of each layer are sent a
 [(a) Layer-wise training vs (b) entire model training]
 <img src="Images/Layerwise.png"> 
 
-We argue this is better in practice in our recent [AAAI 2020 paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both [layerwise and full-model implementation](https://github.com/sands-lab/layer-wise-aaai20). 
+We argue this is better in practice in our recent **[AAAI 2020 paper]**(https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both **[layerwise and full-model implementation]**(https://github.com/sands-lab/layer-wise-aaai20). 
 
 ## A Unified Framework
 
 Now we propose a unified,general, compressed communication framework. 
 
 <img src="Images/Framework.png">
+
+## References
+
+* 
