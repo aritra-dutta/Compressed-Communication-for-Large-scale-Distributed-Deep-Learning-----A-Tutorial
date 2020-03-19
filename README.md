@@ -125,8 +125,8 @@ Machine Learning, In SysML, 2019.
 * Wen, W.; Xu, C.; Yan, F.; Wu, C.; Wang, Y.; Chen, Y.; and Li, H., TernGrad: Ternary Gradients to Reduce Communication in
 Distributed Deep Learning, In NeurIPS, 2017. 
 
-* A. F. Aji and K. Heafield, Sparse Communication forDistributed Gradient Descent. InProc. ofEMNLP-IJCNLP, 2017. 
+* Aji, A. F. and Heafield, K., Sparse Communication forDistributed Gradient Descent. InProc. ofEMNLP-IJCNLP, 2017. 
 
-* H. Wang, S. Sievert, S. Liu, Z. Charles,D. Papailiopoulos, and S. Wright. ATOMO:Communication Efficient Learning via AtomicSparsification. InProc. of NeurIPS, 2018.
+* Wang, H.; Sievert, S.; Liu, S.; Charles, Z,; Papailiopoulos, D.; and Wright, S., ATOMO:Communication Efficient Learning via AtomicSparsification. In NeurIPS, 2018.
 
-* A. Koloskova, S. Stich, and M. Jaggi. DecentralizedStochastic Optimization and Gossip Algorithms withCompressed Communication. InProc. of ICML, 2019. 
+* Koloskova, A.; Stich, S.; and Jaggi, M., DecentralizedStochastic Optimization and Gossip Algorithms withCompressed Communication. In ICML, 2019. 
