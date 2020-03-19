@@ -46,21 +46,29 @@ A distributed optimization problem minimizes a function
 where n is the number of workers. Each worker has a local copy of the model and has access to a partition of the training data. The workers jointly update the model parameters <img src="http://tex.s2cms.ru/svg/x%5Cin%5Cmathbb%7BR%7D%5Ed" alt = "x\in\mathbb{R}^d"/>, where d corresponds to the number of parameters. Typically, <img src="http://tex.s2cms.ru/svg/f_i" alt = "f_i"/> is an expectation function defined on a random variable that samples the data. This is also known as *distributed data-parallel training* as well. The following figure shows two instances of distributed training. 
 
 
-[(a) Centralized distributed SGD setup by using n *workers * and unique * master/parameter * server. (b) An example of decentralized distributed SGD by using n machines forming a ring topology.]<img src="Images/Distributed.png"> 
+[(a) Centralized distributed SGD setup by using n *workers* and unique *master/parameter* server. (b) An example of decentralized distributed SGD by using n machines forming a ring topology.]<img src="Images/Distributed.png"> 
 
 ### How distributed training is performed? 
 
+In the *distributed data-parallel training* each computing node or the worker has the local copy the DNN model. In the following Figure we show how a distributed training is performed at node i. 
 [(a) DNN architecture at node i. (b) Gradient compression mechanism for one of the layer of a DNN.]<img src="Images/DNN.png"> 
 
 ### What is the bottleneck? What is the remedy? 
 
-This tutorial focuses on *gradient compression*. 
-      
-      * Let g_k^{i,L} be the local gradient in worker $i$ at level $L$ of the DNN during training iteration $k$. 
-      * Instead of transmitting $g_k^{i,L}$, the worker sends $Q(g_k^{i,L})$, where $Q$ is a compression operator. 
-      * The receiver has a decompression operator $Q^{-1}$ that reconstructs the gradient. 
+The parameters of modern DNNs belong to a high-dimensional space. As a result, the gradient vectors are high dimensional as well. As the DNN architechture shows, during the *backpropagation*, each node calculates the layer-wise gradient. However, these large gradient vectors need to be communicated among the workers and are exchanged through the network, and the aggregated values are sent back to the workers. This process is repeated over many epochs unto convergence. This communication process involves large amounts of data and the network bandwidth becomes the bottleneck. 
 
-### What is ***Compression***?
+<img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" />
+
+To alleviate this problem, many recent work propose a *lossy compression* during the gradient communication to reduce the volume of transferred data. This tutorial focuses on *gradient compression*. We note that *parameter compression* is not our interest and orthogonal to our work. Formally, we define the gradient compression mechanism as follows:
+
+      
+  * Let <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D" alt = "g_k^{i,L}" /> be the local gradient in worker <img  src ="http://tex.s2cms.ru/svg/i" alt = "i" /> at level <img  src ="http://tex.s2cms.ru/svg/L" alt = "L" /> of the DNN during training iteration <img  src ="http://tex.s2cms.ru/svg/k" alt = "k" />. 
+  * Instead of transmitting <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" />, the worker sends <img  src ="http://tex.s2cms.ru/svg/Q(g_k%5E%7Bi%2CL%7D)," alt = "Q(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" /> is a compression operator. 
+  * The receiver decompresses the compressed gradient <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D(g_k%5E%7Bi%2CL%7D)," alt = "Q^{-1}(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D" alt = "Q^{-1}" /> is a decompression operator. 
+  
+For a formal definition, we refer the reader to [this paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
+
+### Classification of ***Compression*** 
 
 We identify four main classes of compressors in the literature---
 * **Quantization**---which reduces the number of bits of each element in the gradient tensor,
@@ -70,17 +78,22 @@ We identify four main classes of compressors in the literature---
 * **Hybrid methods**---which combine quantization with sparsification, and 
 * **Low-rank methods**---which decompose the gradient into low-rank matrices.
 
+We refer the following table for an comprehensive overview. Although we do not claim it is exhaustive. 
+
 <img src="Images/Table.png">
-
-
 
 ### Is Layer-wise compression better than the full model compression? 
 
-[(a) Layer-wise training and (b) entire model training]
+Compression methods can reduce communicated data-volume and they provide convergence guarantees (under standard assumptions). However, there is a discrepancy between the theoretical analysis and practical implementation of existing compression methods. To the best of our knowledge, the theoretical analysis of every prior method appears to assume that compression is applied to the gradient values of the ***entire model***. However, from existing implementations and experience with implementing compression methods, we observe that compression is applied ***layer by layer***, (as illustrated in the next Figure) in all state-of-the-art deep learning toolkits, such as TensorFlow, Pytorch etc. to 
+enforce *wait-free backpropagation* where the gradients of each layer are sent as soon as they are available.
+
+[(a) Layer-wise training vs (b) entire model training]
 <img src="Images/Layerwise.png"> 
 
 We argue this is better in practice in our recent [AAAI 2020 paper](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both [layerwise and full-model implementation](https://github.com/sands-lab/layer-wise-aaai20). 
 
 ## A Unified Framework
+
+Now we propose a unified,general, compressed communication framework. 
 
 <img src="Images/Framework.png">
