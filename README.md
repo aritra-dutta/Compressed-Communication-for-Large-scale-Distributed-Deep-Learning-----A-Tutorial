@@ -61,9 +61,9 @@ In the *distributed data-parallel training* each computing node or the worker ha
 
 ### What is the bottleneck? What is the remedy? 
 
-The parameters of modern DNNs belong to a high-dimensional space. As a result, the gradient vectors are high dimensional as well. As the DNN architechture shows, during the *backpropagation*, each node calculates the layer-wise gradient. However, these large gradient vectors need to be communicated among the workers and are exchanged through the network, and the aggregated values are sent back to the workers. This process is repeated over many epochs unto convergence. This communication process involves large amounts of data and the network bandwidth becomes the bottleneck. 
+The parameters of modern DNNs belong to a high-dimensional space. As a result, the gradient vectors are high dimensional as well. As the DNN architechture shows, during the *backpropagation*, each node calculates the layer-wise gradient. However, these large gradient vectors need to be communicated among the workers and are exchanged through the network, and the aggregated values are sent back to the workers. This process is repeated unto convergence. The gradient communication indeed involves large amounts of data and the network bandwidth becomes the bottleneck. 
 
-To alleviate this problem, many recent work propose a *lossy compression* during the gradient communication to reduce the volume of transferred data. This tutorial focuses on *gradient compression*. We note that *parameter compression* is not our interest and orthogonal to our work. Formally, we define the gradient compression mechanism as follows:
+To alleviate this problem, many recent work propose to *compress* the communicated gradients to reduce the transferred data volume. **This tutorial focuses on *gradient compression***. We note that *parameter compression* is not our interest and orthogonal to our work. Formally, we define the gradient compression mechanism as follows:
 
       
   * Let <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D" alt = "g_k^{i,L}" /> be the local gradient at worker <img  src ="http://tex.s2cms.ru/svg/i" alt = "i" /> at level <img  src ="http://tex.s2cms.ru/svg/L" alt = "L" /> of the DNN at iteration <img  src ="http://tex.s2cms.ru/svg/k" alt = "k" />. 
@@ -72,7 +72,8 @@ To alleviate this problem, many recent work propose a *lossy compression* during
   
   * The receiver decompresses the compressed gradient <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D(g_k%5E%7Bi%2CL%7D)," alt = "Q^{-1}(g_k^{i,L})" /> where <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D" alt = "Q^{-1}" /> is a decompression operator. 
   
-For a formal definition of the gradient compression, we refer the readers to [**this paper**.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
+  
+For a formal definition of the compression operator <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" />, we refer the readers to [**this paper**.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
 
 ### Classification of ***Compression*** 
 
@@ -90,13 +91,13 @@ We refer the following table for an comprehensive overview of the gradient compr
 
 ### Is Layer-wise compression better than the full model compression? 
 
-Compression methods can reduce communicated data-volume and they provide convergence guarantees (under standard assumptions). However, there is a discrepancy between the theoretical analysis and practical implementation of existing compression methods. To the best of our knowledge, the theoretical analysis of every prior method appears to assume that compression is applied to the gradient values of the ***entire model***. However, from existing implementations and experience with implementing compression methods, we observe that compression is applied ***layer by layer***, (as illustrated in the next Figure) in all state-of-the-art deep learning toolkits, such as TensorFlow, Pytorch etc. to 
-enforce *wait-free backpropagation* where the gradients of each layer are sent as soon as they are available.
+Compression methods can reduce communicated data-volume and they provide convergence guarantees (under some standard assumptions). However, there is a **discrepancy** between the theoretical analysis and practical implementation of existing compression methods. To the best of our knowledge, the theoretical analysis of every prior gradient compression method assume that the compression is applied to the gradient vector of the ***entire model***. However, from existing implementations perspective and experience with implementing compression methods, we observe that the compression is applied ***layer by layer*** to the DNN, (as illustrated in the next Figure) in all state-of-the-art deep learning toolkits, such as TensorFlow, Pytorch etc. to enforce *wait-free backpropagation* where the gradients of each layer are sent as soon as they are available.
 
 [(a) Layer-wise training vs (b) entire model training]
 <img src="Images/Layerwise.png"> 
+ 
 
-We argue this is better in practice in our recent [**AAAI 2020 paper**](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both [**layerwise and full-model implementation**](https://github.com/sands-lab/layer-wise-aaai20). 
+* We established an unified convergence analysis for distributed SGD with **layer-wise, bidirectional**, compressed communication and it encompasses the majority of existing compression methods, both biased (e.g., Top k, Random k, signSGD) and unbiased (e.g., QSGD, TernGrad) in our recent [**AAAI 2020 paper**](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). We argue the **layer-wise** compression analysis is better in practice compare to the **entire-model** compression. Additionally, we provide both [**layerwise and full-model implementation**](https://github.com/sands-lab/layer-wise-aaai20).
 
 ## A Unified Framework
 
