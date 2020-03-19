@@ -57,8 +57,6 @@ In the *distributed data-parallel training* each computing node or the worker ha
 
 The parameters of modern DNNs belong to a high-dimensional space. As a result, the gradient vectors are high dimensional as well. As the DNN architechture shows, during the *backpropagation*, each node calculates the layer-wise gradient. However, these large gradient vectors need to be communicated among the workers and are exchanged through the network, and the aggregated values are sent back to the workers. This process is repeated over many epochs unto convergence. This communication process involves large amounts of data and the network bandwidth becomes the bottleneck. 
 
-<img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" />
-
 To alleviate this problem, many recent work propose a *lossy compression* during the gradient communication to reduce the volume of transferred data. This tutorial focuses on *gradient compression*. We note that *parameter compression* is not our interest and orthogonal to our work. Formally, we define the gradient compression mechanism as follows:
 
       
