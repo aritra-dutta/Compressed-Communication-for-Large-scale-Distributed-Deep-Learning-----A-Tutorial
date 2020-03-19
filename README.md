@@ -17,7 +17,7 @@ Panos Kalnis, <panos.kalnis@kaust.edu.sa>, [Personal Website](https://cloud.kaus
 
 ## Related Papers 
 
-* **[On the Discrepancy between the Theoretical Analysis and Practical Implementations of Compressed Communication for Distributed Deep Learning**, Aritra Dutta, El Houcine Bergou, Ahmed M. Abdelmoniem, Chen-Yu Ho, Atal Narayan Sahu, Marco Canini, and Panos Kalnis, In the proceedings of Thirty-Fourth AAAI Conference on Artificial Intelligence (AAAI-20)].(https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf) 
+* [**On the Discrepancy between the Theoretical Analysis and Practical Implementations of Compressed Communication for Distributed Deep Learning**, Aritra Dutta, El Houcine Bergou, Ahmed M. Abdelmoniem, Chen-Yu Ho, Atal Narayan Sahu, Marco Canini, and Panos Kalnis, In the proceedings of Thirty-Fourth AAAI Conference on Artificial Intelligence (AAAI-20)].(https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf) 
 
 * **Compressed Communication for Distributed Deep Learning: Survey and Quantitative Evaluation**, Hang Xu, Chen-Yu Ho, Ahmed M. Abdelmoniem, Aritra Dutta, El Houcine Bergou, Konstantinos Karatsenidis, Marco Canini, and Panos Kalni, March 2020. 
 
@@ -96,7 +96,7 @@ enforce *wait-free backpropagation* where the gradients of each layer are sent a
 [(a) Layer-wise training vs (b) entire model training]
 <img src="Images/Layerwise.png"> 
 
-We argue this is better in practice in our recent **[AAAI 2020 paper]**(https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both **[layerwise and full-model implementation]**(https://github.com/sands-lab/layer-wise-aaai20). 
+We argue this is better in practice in our recent [**AAAI 2020 paper**](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf). Additionally, we provide both [**layerwise and full-model implementation**](https://github.com/sands-lab/layer-wise-aaai20). 
 
 ## A Unified Framework
 
@@ -104,6 +104,29 @@ Now we propose a unified,general, compressed communication framework.
 
 <img src="Images/Framework.png">
 
-## References
+## Selected References
 
-* 
+* Alistarh, D.; Grubic, D.; Li, J.; Tomioka, R.; and Vojnovic, M., QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding, In NeurIPS, 2017. 
+
+* Alistarh, D.; Hoefler, T.; Johansson, M.; Konstantinov, N.; Khirirat, S.; and Renggli, C., The Convergence of Sparsified Gradient Methods, In NeurIPS, 2018.
+
+* Bernstein, J.; Wang, Y.; Azizzadenesheli, K.; and Anandkumar, A., signSGD: Compressed Optimisation for Non-Convex
+Problems, In ICML, 2018. 
+
+* Dettmers, T.,  8-Bit Approximations for Parallelism in Deep Learning. In ICLR, 2016. 
+
+* Lim, H.; Andersen, D. G.; and Kaminsky, M., 3LC:Lightweight and Effective Traffic Compression For Distributed
+Machine Learning, In SysML, 2019.
+
+* Seide, F.; Fu, H.; Droppo, J.; Li, G.; and Yu, D., 1-Bit Stochastic Gradient Descent and Application to Data-Parallel Distributed Training of Speech DNNs, In INTERSPEECH, 2014. 
+
+* Wangni, J.; Wang, J.; Liu, J.; and Zhang, T., Gradient Sparsification for Communication-Efficient Distributed Optimization. In NeurIPS, 2018. 
+
+* Wen, W.; Xu, C.; Yan, F.; Wu, C.; Wang, Y.; Chen, Y.; and Li, H., TernGrad: Ternary Gradients to Reduce Communication in
+Distributed Deep Learning, In NeurIPS, 2017. 
+
+* A. F. Aji and K. Heafield, Sparse Communication forDistributed Gradient Descent. InProc. ofEMNLP-IJCNLP, 2017. 
+
+* H. Wang, S. Sievert, S. Liu, Z. Charles,D. Papailiopoulos, and S. Wright. ATOMO:Communication Efficient Learning via AtomicSparsification. InProc. of NeurIPS, 2018.
+
+* A. Koloskova, S. Stich, and M. Jaggi. DecentralizedStochastic Optimization and Gossip Algorithms withCompressed Communication. InProc. of ICML, 2019. 
