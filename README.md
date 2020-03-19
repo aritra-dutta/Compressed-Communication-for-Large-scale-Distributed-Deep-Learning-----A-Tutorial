@@ -9,11 +9,11 @@
 ## Presenters 
 El Houcine Bergou, <houcine.bergou@kaust.edu.sa>
 
-Aritra Dutta, <aritra.dutta@kaust.edu.sa>, [Personal Website](https://www.aritradutta.com/)
+Aritra Dutta, <aritra.dutta@kaust.edu.sa>, [**Personal Website**](https://www.aritradutta.com/)
 
-Panos Kalnis, <panos.kalnis@kaust.edu.sa>, [Personal Website](https://cloud.kaust.edu.sa/Pages/Kalnis.aspx)
+Panos Kalnis, <panos.kalnis@kaust.edu.sa>, [**Personal Website**](https://cloud.kaust.edu.sa/Pages/Kalnis.aspx)
 
-[King Abdullah University of Science and Technology (KAUST)](https://www.kaust.edu.sa/en)
+[**King Abdullah University of Science and Technology (KAUST)**](https://www.kaust.edu.sa/en)
 
 ## Related Papers 
 
