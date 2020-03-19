@@ -67,10 +67,12 @@ To alleviate this problem, many recent work propose a *lossy compression* during
 
       
   * Let <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D" alt = "g_k^{i,L}" /> be the local gradient in worker <img  src ="http://tex.s2cms.ru/svg/i" alt = "i" /> at level <img  src ="http://tex.s2cms.ru/svg/L" alt = "L" /> of the DNN during training iteration <img  src ="http://tex.s2cms.ru/svg/k" alt = "k" />. 
+  
   * Instead of transmitting <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" />, the worker sends <img  src ="http://tex.s2cms.ru/svg/Q(g_k%5E%7Bi%2CL%7D)," alt = "Q(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" /> is a compression operator. 
+  
   * The receiver decompresses the compressed gradient <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D(g_k%5E%7Bi%2CL%7D)," alt = "Q^{-1}(g_k^{i,L})" />, where <img  src ="http://tex.s2cms.ru/svg/Q%5E%7B-1%7D" alt = "Q^{-1}" /> is a decompression operator. 
   
-For a formal definition, we refer the readers to [this paper.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
+For a formal definition of the gradient compression, we refer the readers to [this paper.](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf)
 
 ### Classification of ***Compression*** 
 
