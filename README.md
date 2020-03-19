@@ -66,7 +66,7 @@ The parameters of modern DNNs belong to a high-dimensional space. As a result, t
 To alleviate this problem, many recent work propose a *lossy compression* during the gradient communication to reduce the volume of transferred data. This tutorial focuses on *gradient compression*. We note that *parameter compression* is not our interest and orthogonal to our work. Formally, we define the gradient compression mechanism as follows:
 
       
-  * Let <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D" alt = "g_k^{i,L}" /> be the local gradient in worker <img  src ="http://tex.s2cms.ru/svg/i" alt = "i" /> at level <img  src ="http://tex.s2cms.ru/svg/L" alt = "L" /> of the DNN during training iteration <img  src ="http://tex.s2cms.ru/svg/k" alt = "k" />. 
+  * Let <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D" alt = "g_k^{i,L}" /> be the local gradient at worker <img  src ="http://tex.s2cms.ru/svg/i" alt = "i" /> at level <img  src ="http://tex.s2cms.ru/svg/L" alt = "L" /> of the DNN at iteration <img  src ="http://tex.s2cms.ru/svg/k" alt = "k" />. 
   
   * Instead of transmitting <img  src ="http://tex.s2cms.ru/svg/g_k%5E%7Bi%2CL%7D," alt = "g_k^{i,L}" /> the worker sends <img  src ="http://tex.s2cms.ru/svg/Q(g_k%5E%7Bi%2CL%7D)," alt = "Q(g_k^{i,L})" /> where <img  src ="http://tex.s2cms.ru/svg/Q" alt = "Q" /> is a compression operator. 
   
