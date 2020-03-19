@@ -59,6 +59,7 @@ where n is the number of workers. Each worker has a local copy of the model and 
 In the *distributed data-parallel training* each computing node or the worker has the local copy the DNN model. In the following Figure we show how a distributed training is performed at node i. 
 [(a) DNN architecture at node i. (b) Gradient compression mechanism for one of the layer of a DNN.]<img src="Images/DNN.png"> 
 
+
 ### What is the bottleneck? What is the remedy? 
 
 The parameters of modern DNNs belong to a high-dimensional space. As a result, the gradient vectors are high dimensional as well. As the DNN architechture shows, during the *backpropagation*, each node calculates the layer-wise gradient. However, these large gradient vectors need to be communicated among the workers and are exchanged through the network, and the aggregated values are sent back to the workers. This process is repeated unto convergence. The gradient communication indeed involves large amounts of data and the network bandwidth becomes the bottleneck. 
@@ -77,7 +78,7 @@ For a formal definition of the compression operator <img  src ="http://tex.s2cms
 
 ### Classification of ***Compression*** 
 
-We identify four main classes of compressors in the literature---
+We identify four main classes of compressors in the literature: 
 * **Quantization**---which reduces the number of bits of each element in the gradient tensor,
 [**IEEE 754** datastructures: 32 bits, 16bits, and 8 bits flexpoint] <img src="Images/ieee.png">  
 * **Sparsification**---which transmits only a few elements per tensor,
@@ -104,6 +105,7 @@ Compression methods can reduce communicated data-volume and they provide converg
 Now we propose a unified, general, compressed, communication-efficient SGD framework. 
 
 <img src="Images/Framework.png">
+
 
 ## Selected References
 
