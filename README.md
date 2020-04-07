@@ -130,6 +130,6 @@ Distributed Deep Learning, In NeurIPS, 2017.
 
 * Aji, A. F. and Heafield, K., Sparse Communication forDistributed Gradient Descent. InProc. ofEMNLP-IJCNLP, 2017. 
 
-* Wang, H.; Sievert, S.; Liu, S.; Charles, Z,; Papailiopoulos, D.; and Wright, S., ATOMO:Communication Efficient Learning via AtomicSparsification. In NeurIPS, 2018.
+* Wang, H.; Sievert, S.; Liu, S.; Charles, Z.; Papailiopoulos, D.; and Wright, S., ATOMO:Communication Efficient Learning via AtomicSparsification. In NeurIPS, 2018.
 
 * Koloskova, A.; Stich, S.; and Jaggi, M., DecentralizedStochastic Optimization and Gossip Algorithms withCompressed Communication. In ICML, 2019. 
