@@ -17,9 +17,9 @@ Panos Kalnis, <panos.kalnis@kaust.edu.sa>, [**Personal Website**](https://cloud.
 
 ## Related Papers 
 
-* [ **On the Discrepancy between the Theoretical Analysis and Practical Implementations of Compressed Communication for Distributed Deep Learning**](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf), Aritra Dutta, El Houcine Bergou, Ahmed M. Abdelmoniem, Chen-Yu Ho, Atal Narayan Sahu, Marco Canini, and Panos Kalnis, In the proceedings of Thirty-Fourth AAAI Conference on Artificial Intelligence (AAAI-20). 
+* [ **On the Discrepancy between the Theoretical Analysis and Practical Implementations of Compressed Communication for Distributed Deep Learning**](https://www.aritradutta.com/uploads/1/1/8/8/118819584/main.pdf), Aritra Dutta, El Houcine Bergou, Ahmed M. Abdelmoniem, Chen-Yu Ho, Atal Narayan Sahu, Marco Canini, and Panos Kalnis, In the proceedings of Thirty-Fourth AAAI Conference on Artificial Intelligence (AAAI-20), February 2020. 
 
-* **Compressed Communication for Distributed Deep Learning: Survey and Quantitative Evaluation**, Hang Xu, Chen-Yu Ho, Ahmed M. Abdelmoniem, Aritra Dutta, El Houcine Bergou, Konstantinos Karatsenidis, Marco Canini, and Panos Kalni, March 2020. 
+* [**Compressed Communication for Distributed Deep Learning: Survey and Quantitative Evaluation**](https://repository.kaust.edu.sa/handle/10754/662495), Hang Xu, Chen-Yu Ho, Ahmed M. Abdelmoniem, Aritra Dutta, El Houcine Bergou, Konstantinos Karatsenidis, Marco Canini, and Panos Kalni, April 2020. 
 
 
 ## Description
