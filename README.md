@@ -7,7 +7,7 @@
 11-13th July, 2020
 
 ## Tutorial Slides 
-Please follow this [**Link**](https://www.dropbox.com/s/63by9dlfxrsov4m/TUTORIAL%20IJCAI%202021%20-%20Presentation.pdf?dl=0) to download presentation slides.
+Please follow this [**Link**](https://www.dropbox.com/s/63by9dlfxrsov4m/TUTORIAL%20IJCAI%202021%20-%20Presentation.pdf?dl=0) to download the presentation slides.
 
 ## Presenters 
 El Houcine Bergou, <houcine.bergou@kaust.edu.sa>
